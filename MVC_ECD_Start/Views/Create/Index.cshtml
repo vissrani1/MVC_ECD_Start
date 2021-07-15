@@ -1,0 +1,106 @@
+﻿@*
+   
+*@
+@{ ViewData["Title"] = "Create";
+}
+
+@model MVC_ECD_Start.Models.CreateConfirm
+
+<div class="container bg-white">
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                <h1 align="center"> Create Record </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center pt-3">
+        <div class="col-9">
+            <form>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-3">
+                        <label for="School">School Name</label>
+                        <input type="text" class="form-control" id="SchoolName">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="actScore">ACT Score</label>
+                        <select id="actScore" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>10-15</option>
+                            <option>15-20</option>
+                            <option>20-25</option>
+                            <option>25-30</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-3">
+                        <label for="City">City</label>
+                        <input type="text" class="form-control" id="City">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="State">State</label>
+                        <select id="State" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>Alabama</option>
+                            <option>Alaska</option>
+                            <option>Arizona</option>
+                            <option>Arkansas</option>
+                            <option>California</option>
+                            <option>Colorado</option>
+                            <option>Connecticut</option>
+                            <option>Delaware</option>
+                            <option>Florida</option>
+                            <option>Georgia</option>
+                            <option>Hawaii</option>
+                            <option>Idaho</option>
+                            <option>Illinois</option>
+                            <option>Indiana</option>
+                            <option>Iowa</option>
+                            <option>Kansas</option>
+                            <option>Kentucky</option>
+                            <option>Louisiana</option>
+                            <option>Maine</option>
+                            <option>Maryland</option>
+                            <option>Massachusetts</option>
+                            <option>Michigan</option>
+                            <option>Minnesota</option>
+                            <option>Mississippi</option>
+                            <option>Missouri</option>
+                            <option>Montana</option>
+                            <option>Nebraska</option>
+                            <option>Nevada</option>
+                            <option>New Hampshire</option>
+                            <option>New Jersey</option>
+                            <option>New Mexico</option>
+                            <option>New York</option>
+                            <option>North Carolina</option>
+                            <option>North Dakota</option>
+                            <option>Ohio</option>
+                            <option>Oklahoma</option>
+                            <option>Oregon</option>
+                            <option>Pennsylvania</option>
+                            <option>Rhode Island</option>
+                            <option>South Carolina</option>
+                            <option>South Dakota</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Utah</option>
+                            <option>Vermont</option>
+                            <option>Virginia</option>
+                            <option>Washington</option>
+                            <option>West Virginia</option>
+                            <option>Wisconsin</option>
+                            <option>Wyoming</option>
+
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <button type="submit" class="btn btn-primary text-center">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

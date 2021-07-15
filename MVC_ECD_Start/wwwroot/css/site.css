@@ -1,0 +1,112 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+#aboutUS {
+    background-color: white;
+}
+
+/* change the background color */
+.navbar-custom {
+    background-color: #00008b;
+    /*background color */
+    body
+
+{
+    background-color: white;
+}
+
+/*paragraph text*/
+h1 {
+    color: black;
+}
+
+h2 {
+    color: black;
+}
+
+}
+
+.center {
+    text-align: center;
+    border-style: double;
+}
+
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #00008b;
+}
+
+
+#ul {
+    list-style-type: none;
+    position: fixed;
+    margin-left: auto;
+    /*width: 500px;*/
+}
+
+#crossList {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    width: 200px;
+    text-align: center;
+}
+
+#member {
+    display: inline-block;
+    text-align: left;
+}
+
+#summary {
+    text-align: left;
+    display: inline-block;
+    margin-left: 2.5;
+}
+
+/*Table css*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.table-title {
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+}
+
+footer {
+    background: #00008b;
+    color: #FFFFFF;
+    margin-top: 50px;
+    /* For mobile phones*/
+    @media only screen and (max-width: 600px) {
+        div.resp {
+            font-size: 10px;
+        }
+    }
+    /* For tablets */
+    @media only screen and (min-width: 601px) and (max-width: 800px) {
+        div.resp {
+            font-size: 11px;
+        }
+    }
+    /* For desktops */
+    @media only screen and (min-width: 801px) {
+        div.resp {
+            font-size: 13px;
+        }
+    }
+
