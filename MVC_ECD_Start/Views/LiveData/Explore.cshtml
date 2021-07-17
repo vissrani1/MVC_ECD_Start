@@ -1,0 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container bg-white">
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                <h1 align="center"> Explore Education Data</h1>
+            </div>
+            <div class="row justify-content-center pb-2 border-bottom">
+                <div class="col text-center"><a href="create.html">Create New Record</a></div>
+            </div>
+            <div class="container bg-white">
+                <div class="row">
+                    <div>
+                        <div class="col">
+
+                        </div>
+                        <input id="search-input" class="form-control" type="text" align="center">Press Enter to Search by School Name</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <link rel="stylesheet" type="text/css" href="./css/main.css">
+                <title>Assignment - 3</title>
+            </head>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+            <style>
+                th {
+                    color: #fff;
+                }
+            </style>
+
+
+            <table class="table table-striped">
+                <tr class="bg-info">
+                    <th class="bg-info" data-colname="fed_sch_cd" data-order="desc">ID</th>
+                    <th data-colname="name" data-order="desc">SCHOOL NAME</th>
+                    <th data-colname="id" data-order="desc">ACTUAL ID</th>
+                    <th data-colname="city" data-order="desc">CITY</th>
+                    <th data-colname="state" data-order="desc">STATE</th>
+                    <th data-colname="sat_scores.average.overall" data-order="desc">AVERAGE SAT SCORE</th>
+                    <th data-colname="act_scores.midpoint.cumulative" data-order="desc">AVERAGE ACT SCORE</th>
+                    <th data-colname="admission_rate.overall" data-order="desc">ADMISSION RATE</th>
+                    <th data-colname="size" data-order="desc">ENROLLED STUDENTS</th>
+                    <th data-colname="tuition.in_state" data-order="desc">IN STATE TUITION</th>
+                    <th data-colname="tuition.out_of_state" data-order="desc">OUT OF STATE TUITION</th>
+                    <th data-colname="school_url" data-order="desc">SCHOOL WEBSITE</th>
+                </tr>
+
+                <tbody id="myTable">
+                </tbody>
+            </table>
+
+            <script>
+                var allData = []
+                var singlePageResponse = []
+                var NUMBER_OF_SCHOOL_DATA_ENTRIES = 100
+
+                $(window).on('load', (function () {
+                    tableIterate()
+                }));
+
+                $("#search-input").on('keyup', function (keyEvent) {
+                    if (keyEvent.key === 'Enter' || keyEvent.keyCode === 13) {
+                        var searchPhrase = $("#search-input").val()
+                        searchTable(searchPhrase)
+                    }
+                });
+
+                function tableIterate() {
+                    var baseUrl = 'https://api.data.gov/ed/collegescorecard/v1/schools?api_key=sOaqyejLHpoOUEY4air3g7GSbQmYJ3VDeJIZykvz&page=';
+
+                    for (var stringIndex = 1; stringIndex <= NUMBER_OF_SCHOOL_DATA_ENTRIES; stringIndex++) {
+                        var FullUrl = baseUrl + stringIndex
+
+                        $.ajax({
+                            method: 'GET',
+                            url: FullUrl,
+                            cache: true,
+                            success: function (response) {
+                                allData.push(response.results);
+                                singlePageResponse = response.results
+                                buildTable(singlePageResponse)
+                            }
+                        })
+                    }
+                }
+
+                function searchTable(value) {
+                    value = value.toLowerCase()
+                    var results = allData.flat().filter(function (row) {
+                        return row.school.name.toLowerCase().includes(value)
+                    });
+                    buildTable(results)
+                }
+
+                function buildTable(data) {
+                    var table = document.getElementById('myTable')
+                    console.log(data.length);
+                    if (data.length == 0) {
+                        table.innerHTML = `<tr>No Results Found</tr>`;
+                    } else {
+                        table.innerHTML = data.map(function (row) {
+                            if (row.school.school_url && row.school.school_url.includes('http')) {
+                                var url = row.school.school_url;
+                            } else if (row.school.school_url) {
+                                var url = "http://" + row.school.school_url;
+                            }
+                            return `<tr>
+                        <td>${row.fed_sch_cd}</td>
+                        <td>${row.school.name}</td>
+                        <td>${row.id}</td>
+                        <td>${row.school.city}</td>
+                        <td>${row.school.state}</td>
+                        <td>${row.latest.admissions.sat_scores.average.overall}</td>
+                        <td>${row.latest.admissions.act_scores.midpoint.cumulative}</td>
+                        <td>${row.latest.admissions.admission_rate.overall}</td>
+                        <td>${row.latest.student.size}</td>
+                        <td>${row.latest.cost.tuition.in_state}</td>
+                        <td>${row.latest.cost.tuition.out_of_state}</td>
+                        <td><a href="${url}">${row.school.school_url}</a></td>
+                        </tr>`;
+                        }).join('');
+                    }
+                }
+
+            </script>

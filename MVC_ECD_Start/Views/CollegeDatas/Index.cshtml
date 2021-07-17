@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MVC_ECD_Start.Models.CollegeData>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FederalSchoolCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageAdmittedSATScores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CumulativeACTMedianScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OverallAdmissionRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InStateTuitionCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutStateTuitionCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrolledSttudentSize)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FederalSchoolCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageAdmittedSATScores)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CumulativeACTMedianScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallAdmissionRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InStateTuitionCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutStateTuitionCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrolledSttudentSize)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

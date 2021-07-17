@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container bg-white">
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                <h1 align="center"> The Most Popular Florida Universities Current Undergraduate Enrollment</h1>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+            <head>
+                <meta charset="utf-8" />
+                <title>Chart.js examples</title>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+            </head>
+            
+
+
+                <canvas id="barchart" width="300" height="150"></canvas>
+
+                <script>// The names of the schools we care about the data of
+    var schoolsToQuery = ['University of South Florida-Main Campus', 'University of Florida', 'Florida State University',
+        'University of Central Florida', 'University of Miami']
+
+
+     new Chart(document.getElementById("barchart"), {
+      type: 'bar',
+      data: {
+        labels: schoolsToQuery,
+        datasets: [
+          {
+            label: "Current Number of Undergraduate Students Enrolled",
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            data:[31321,34564,32072,58392,10873]
+          }
+        ]
+      },
+      options: {
+        legend: { display: true },
+        title: {
+          display: true,
+          text: 'Current Undergraduate Student Enrollment In Top 5 Florida Schools'
+
+    }
+}
+})</script>

@@ -1,0 +1,83 @@
+﻿@model MVC_ECD_Start.Models.CollegeData
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CollegeData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FederalSchoolCode" class="control-label"></label>
+                <input asp-for="FederalSchoolCode" class="form-control" />
+                <span asp-validation-for="FederalSchoolCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolName" class="control-label"></label>
+                <input asp-for="SchoolName" class="form-control" />
+                <span asp-validation-for="SchoolName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolCity" class="control-label"></label>
+                <input asp-for="SchoolCity" class="form-control" />
+                <span asp-validation-for="SchoolCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolState" class="control-label"></label>
+                <input asp-for="SchoolState" class="form-control" />
+                <span asp-validation-for="SchoolState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolURL" class="control-label"></label>
+                <input asp-for="SchoolURL" class="form-control" />
+                <span asp-validation-for="SchoolURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageAdmittedSATScores" class="control-label"></label>
+                <input asp-for="AverageAdmittedSATScores" class="form-control" />
+                <span asp-validation-for="AverageAdmittedSATScores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CumulativeACTMedianScore" class="control-label"></label>
+                <input asp-for="CumulativeACTMedianScore" class="form-control" />
+                <span asp-validation-for="CumulativeACTMedianScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverallAdmissionRate" class="control-label"></label>
+                <input asp-for="OverallAdmissionRate" class="form-control" />
+                <span asp-validation-for="OverallAdmissionRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InStateTuitionCost" class="control-label"></label>
+                <input asp-for="InStateTuitionCost" class="form-control" />
+                <span asp-validation-for="InStateTuitionCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OutStateTuitionCost" class="control-label"></label>
+                <input asp-for="OutStateTuitionCost" class="form-control" />
+                <span asp-validation-for="OutStateTuitionCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnrolledSttudentSize" class="control-label"></label>
+                <input asp-for="EnrolledSttudentSize" class="form-control" />
+                <span asp-validation-for="EnrolledSttudentSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

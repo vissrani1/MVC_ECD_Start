@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MVC_ECD_Start.Controllers
 {
-    public class Chart : Controller
+    public class LiveData : Controller
     {
-        public IActionResult Charts()
+        public IActionResult Explore()
         {
             return View();
         }
